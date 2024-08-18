@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfstudylearning01"
+		},
+		"ls_SqlServer01_password": {
+			"value": ""
+		},
+		"ls_vvstorage01_connectionString": {
+			"value": ""
+		},
+		"ls_SqlServer01_properties_typeProperties_server": {
+			"value": "sqldatabasedemoserver01.database.windows.net"
+		},
+		"ls_SqlServer01_properties_typeProperties_database": {
+			"value": "SampleDB"
+		},
+		"ls_SqlServer01_properties_typeProperties_userName": {
+			"value": "Study_By_Varun"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
