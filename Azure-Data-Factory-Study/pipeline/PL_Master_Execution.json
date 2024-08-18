@@ -1,0 +1,27 @@
+{
+	"name": "PL_Master_Execution",
+	"properties": {
+		"description": "master pipeline which calls the invoked pipeline or child pipeline",
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_Invoked",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-08-15T11:08:12Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

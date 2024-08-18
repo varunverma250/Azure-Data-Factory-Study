@@ -1,0 +1,78 @@
+{
+	"name": "PL_Untill_Activity_example_01",
+	"properties": {
+		"activities": [
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@greaterOrEquals(int(variables('VarX')),10)",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Set temp value",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "temp",
+								"value": {
+									"value": "@variables('VarX')",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Set temp value",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "VarX",
+								"value": {
+									"value": "@string(add(int(variables('temp')),1))",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"timeout": "0.12:00:00"
+				}
+			}
+		],
+		"variables": {
+			"VarX": {
+				"type": "String",
+				"defaultValue": "5"
+			},
+			"temp": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Conditional and Loop Activities"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-18T11:47:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

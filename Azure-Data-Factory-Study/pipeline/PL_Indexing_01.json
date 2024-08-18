@@ -1,0 +1,46 @@
+{
+	"name": "PL_Indexing_01",
+	"properties": {
+		"description": "access individual items actually from the array by using indexing",
+		"activities": [
+			{
+				"name": "Set variable",
+				"description": "set variable marks 90 into the output to see the result",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ADF output",
+					"value": {
+						"value": "@{variables('Marks')[0]}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"Marks": {
+				"type": "Array",
+				"defaultValue": [
+					89,
+					50,
+					50,
+					70
+				]
+			},
+			"ADF output": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Initial Concept"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-18T11:47:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,40 @@
+{
+	"name": "PL_Filter_example_01",
+	"properties": {
+		"activities": [
+			{
+				"name": "Filter",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@array(pipeline().parameters.Filter_string)",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@contains(item(),'Car')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"Filter_string": {
+				"type": "string",
+				"defaultValue": [
+					"Volvo",
+					"BMW Car",
+					"Ford",
+					"Mazda Car"
+				]
+			}
+		},
+		"folder": {
+			"name": "Conditional and Loop Activities"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-18T11:47:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

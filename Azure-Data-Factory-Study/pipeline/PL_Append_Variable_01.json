@@ -1,0 +1,67 @@
+{
+	"name": "PL_Append_Variable_01",
+	"properties": {
+		"description": "PL_Append_Variable_01 example",
+		"activities": [
+			{
+				"name": "Append variable",
+				"description": "Append marks 90 into the existing mark array",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Marks",
+					"value": {
+						"value": "@int(90)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable",
+				"description": "set variable marks 90 into the output to see the result",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Append variable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Output",
+					"value": {
+						"value": "@variables('Marks')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"Marks": {
+				"type": "Array",
+				"defaultValue": [
+					89,
+					50,
+					50,
+					70
+				]
+			},
+			"Output": {
+				"type": "Array"
+			}
+		},
+		"folder": {
+			"name": "Pipeline ACtivites"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-18T11:47:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

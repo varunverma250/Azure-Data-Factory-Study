@@ -1,0 +1,33 @@
+{
+	"name": "PL_Variable_example_01",
+	"properties": {
+		"description": "Simple basic example how to assign value to a variable ",
+		"activities": [
+			{
+				"name": "Set variable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Var",
+					"value": "10"
+				}
+			}
+		],
+		"variables": {
+			"Var": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Pipeline ACtivites"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-18T11:47:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

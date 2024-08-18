@@ -1,0 +1,52 @@
+{
+	"name": "DS_Source_Blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_vvstorage01",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Data FLow Transformations"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "emp_dept.csv",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "emp_id",
+				"type": "String"
+			},
+			{
+				"name": "emp_name",
+				"type": "String"
+			},
+			{
+				"name": "emp_dept_name",
+				"type": "String"
+			},
+			{
+				"name": "emp_sal",
+				"type": "String"
+			},
+			{
+				"name": "emp_dept_no",
+				"type": "String"
+			},
+			{
+				"name": "emp_country",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

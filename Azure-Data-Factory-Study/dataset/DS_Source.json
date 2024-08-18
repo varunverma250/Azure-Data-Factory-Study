@@ -1,0 +1,57 @@
+{
+	"name": "DS_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_vvstorage01",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Age",
+				"type": "String"
+			},
+			{
+				"name": "Sex",
+				"type": "String"
+			},
+			{
+				"name": "BP",
+				"type": "String"
+			},
+			{
+				"name": "Cholesterol",
+				"type": "String"
+			},
+			{
+				"name": "Na_to_K",
+				"type": "String"
+			},
+			{
+				"name": "Drug",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

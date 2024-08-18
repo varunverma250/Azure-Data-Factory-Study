@@ -1,0 +1,83 @@
+{
+	"name": "PL_Variable_example_02_way2",
+	"properties": {
+		"description": "Calculate area for rectangle",
+		"activities": [
+			{
+				"name": "Calculate Area",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set Lenght",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Set Breadth",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Area",
+					"value": {
+						"value": "@string(mul(int(variables('length')),int(variables('Breadth'))))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set Lenght",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "length",
+					"value": "10"
+				}
+			},
+			{
+				"name": "Set Breadth",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Breadth",
+					"value": "5"
+				}
+			}
+		],
+		"variables": {
+			"length": {
+				"type": "String"
+			},
+			"Breadth": {
+				"type": "String"
+			},
+			"Area": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Pipeline ACtivites"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-18T11:47:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

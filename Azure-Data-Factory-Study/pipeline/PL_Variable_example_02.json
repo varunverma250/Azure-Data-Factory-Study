@@ -1,0 +1,44 @@
+{
+	"name": "PL_Variable_example_02",
+	"properties": {
+		"description": "Calculate area for rectangle",
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Area",
+					"value": {
+						"value": "@string(mul(int(variables('length')),int(variables('Breadth'))))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"length": {
+				"type": "String",
+				"defaultValue": "20"
+			},
+			"Breadth": {
+				"type": "String",
+				"defaultValue": "30"
+			},
+			"Area": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Pipeline ACtivites"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-18T11:47:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
